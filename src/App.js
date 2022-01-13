@@ -7,6 +7,13 @@ import LoginButton from './LoginButton';
 import LoginPopup from './LoginPopup';
 import { AuthState } from '@aws-amplify/ui-components';
 
+Amplify.configure({
+  ...awsconfig,
+  DataStore: {
+    authModeStrategyType: AuthModeStrategyType.MULTI_AUTH
+  }
+})
+
 function App() {
   const [posts, setPosts] = useState([])
   const [currentUser, setCurrentUser] = useState()
